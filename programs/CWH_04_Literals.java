@@ -9,7 +9,9 @@ public class CWH_04_Literals {
         char ch = 'A';
         float f1 = 5.6F;
         double d1 = 4.66D; // works without D or d as well
-        System.out.println(age+" "+age2+" "+age3+" "+ageDino+" "+ch+" "+f1+" "+d1);    
+        boolean A = true;
+        String str = "Baba";
+        System.out.println(age+" "+age2+" "+age3+" "+ageDino+" "+ch+" "+f1+" "+d1+" "+A+" "+str);    
     }
 
 }
