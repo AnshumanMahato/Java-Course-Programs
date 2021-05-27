@@ -14,6 +14,7 @@ public class CgpaCalc {
         }
 
         System.out.println("Percentage:" + (tot/5));
+        System.out.println("CGPA:" + Math.floor((tot/5)/9.5f));
 
         sc.close();
     }
