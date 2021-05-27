@@ -6,7 +6,7 @@ public class DistanceConvert {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Distance in kilometeres");
         float km = sc.nextFloat();
-        System.out.println("Distance in Miles: " + (km*0.621371));
+        System.out.println("Distance in Miles: " + (km*0.621371) + " miles");
         sc.close();
     }
 }
