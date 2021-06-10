@@ -1,4 +1,4 @@
-package programs;
+package programs.CH1;
 
 public class ThreeNumSum {
     public static void main(String[] args)

@@ -1,4 +1,4 @@
-package programs;
+package programs.CH2;
 
 public class DistanceExp {
     public static void main(String[] args) {

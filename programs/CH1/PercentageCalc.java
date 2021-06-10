@@ -1,4 +1,4 @@
-package programs;
+package programs.CH1;
 import java.util.Scanner;
 
 public class PercentageCalc {

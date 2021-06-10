@@ -1,4 +1,4 @@
-package programs;
+package programs.CH3;
 import java.util.Scanner;
 
 public class SpaceToUnderscore {
