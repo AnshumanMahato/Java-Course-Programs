@@ -13,7 +13,7 @@ public class TestResult {
 
         int total = marks[0]+marks[1]+marks[2];
 
-        if(marks[0] < 33 || marks[1] < 33 || marks[3] < 33 || (total/3) < 40)
+        if(marks[0] < 33 || marks[1] < 33 || marks[2] < 33 || (total/3) < 40)
             System.out.println("Fail");
         else
             System.out.println("pass");
