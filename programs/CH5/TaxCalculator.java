@@ -1,4 +1,4 @@
-package programs;
+package programs.CH5;
 
 import java.util.Scanner;
 
