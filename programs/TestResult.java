@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TestResult {
     public static void main(String[] args) {
+        
         Scanner sc = new Scanner(System.in);
         int marks[] = new int [3];
         System.out.println("Enter marks for 3 subjects:");
