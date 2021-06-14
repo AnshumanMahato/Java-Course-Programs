@@ -13,6 +13,7 @@ public class WebsiteType {
             case ".com": urlType = "Commercial Site";break;
             case ".in": urlType = "Indian Site";break;
             case ".org": urlType = "Organizational Site";break;
+            default: urlType = "Other Site";break;
         }
 
         System.out.println("Site Type:" + urlType);
