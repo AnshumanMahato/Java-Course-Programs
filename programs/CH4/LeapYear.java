@@ -19,7 +19,7 @@ public class LeapYear {
             isLeap = true;
         }
         
-        System.out.println("Is" + year + " a leap year? " + isLeap);
+        System.out.println("Is " + year + " a leap year? " + isLeap);
         sc.close();
     }
 }
