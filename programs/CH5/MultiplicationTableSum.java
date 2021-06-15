@@ -8,9 +8,11 @@ public class MultiplicationTableSum {
         int n = sc.nextInt();
         int sum = 0;
         System.out.println("Table of " + n + ":");
-        for (int i = 1; i <= 10 ; i++) {
+        int i = 1;
+        do {
             sum+= n*i;
-        }
+            i++;
+        }while(i<=10);
 
         System.out.println(sum);
         sc.close();
