@@ -31,7 +31,7 @@ class SelectedNo {
         int n;
 
         while(true) {
-            System.out.print("Enter Number:");
+            System.out.print("Enter Guess Number:");
             n = sc.nextInt();
             guessCount++;
             if(this.isCorrect(n)) {
