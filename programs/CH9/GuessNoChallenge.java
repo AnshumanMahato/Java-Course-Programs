@@ -15,6 +15,22 @@ class SelectedNo {
     private int num;
     private int guessCount;
 
+    public int getNum() {
+        return this.num;
+    }
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public int getGuessCount() {
+        return this.guessCount;
+    }
+    
+    public void setGuessCount(int guessCount) {
+        this.guessCount = guessCount;
+    }
+
+
     private boolean isCorrect(int n) {
         return n == num;
     }
