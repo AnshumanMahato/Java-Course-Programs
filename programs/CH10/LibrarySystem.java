@@ -1,5 +1,7 @@
 package programs.CH10;
 
+import java.util.Scanner;
+
 public class LibrarySystem {
     public static void main(String[] args) {
         
@@ -87,8 +89,16 @@ class Library{
     private int totalBooks;
     private int booksIssued;
 
+    private int lastBookBno() {
+        return libraryBooks[totalBooks - 1].getBno();
+    }
+
     private boolean canAddBook(){
         return totalBooks < 10;
+    }
+
+    private boolean noBooks(){
+        return totalBooks == 0;
     }
 
     public Library(){
@@ -104,7 +114,32 @@ class Library{
             System.out.println("Library is full. Cannot add new books.");
             return;
         }
-        
+
+        Scanner sc = new Scanner(System.in);
+        LibraryBook book = new LibraryBook();
+        String bookName;
+        int noc;
+
+        if(noBooks())
+            book.setBno(1000);
+        else
+            book.setBno(lastBookBno() + 1);
+        System.out.println("Enter Book Name:");
+        bookName = sc.nextLine();
+        book.setName(bookName);
+        do{
+            System.out.println("Enter no. of copies (between 1 to 10):");
+            noc = sc.nextInt();
+
+            if(noc < 0 || noc > 10)
+                System.out.println("A book can have something between 1 to 10 copies. Please insert a valid value.");
+        }
+        while(noc < 0 || noc > 10);
+
+        book.setTotalCopies(noc);
+        book.setAvailablecopies(noc);
+
+
     }
 }
 
