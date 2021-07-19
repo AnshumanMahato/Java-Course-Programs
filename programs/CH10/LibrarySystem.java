@@ -139,7 +139,10 @@ class Library{
         book.setTotalCopies(noc);
         book.setAvailablecopies(noc);
 
+        libraryBooks[totalBooks] = book;
 
+        System.out.println("Book has been added successfully!!!");
+        sc.close();
     }
 }
 
