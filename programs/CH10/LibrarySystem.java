@@ -59,5 +59,26 @@ class LibraryBook extends Book {
 
 }
 
+class IssuedBook extends Book {
+    private int uno;
+    private String userName;
+
+    public int getUno() {
+	    return this.uno;
+    }
+    public void setUno(int uno) {
+	    this.uno = uno;
+    }
+
+
+    public String getUserName() {
+    	return this.userName;
+    }
+    public void setUserName(String userName) {
+    	this.userName = userName;
+    }
+
+}
+
 
 
