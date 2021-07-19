@@ -80,5 +80,33 @@ class IssuedBook extends Book {
 
 }
 
+class Library{
+    private LibraryBook[] libraryBooks;
+    private IssuedBook[] issuedBooks;
+
+    private int totalBooks;
+    private int booksIssued;
+
+    private boolean canAddBook(){
+        return totalBooks < 10;
+    }
+
+    public Library(){
+        this.libraryBooks = new LibraryBook[10];
+        this.issuedBooks = new IssuedBook[100];
+        this.totalBooks = 0;
+        this.booksIssued = 0;
+        
+    }
+
+    public void addBook(){
+        if(!canAddBook()){
+            System.out.println("Library is full. Cannot add new books.");
+            return;
+        }
+        
+    }
+}
+
 
 
