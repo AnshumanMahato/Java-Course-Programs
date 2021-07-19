@@ -25,10 +25,36 @@ class Book {
 	    this.name = name;
     }
 
-    public Book(String name, int bno)
+    public Book()
     {
-        this.name = name;
-        this.bno = bno;
+        this.name ="";
+        this.bno = 0;
+    }
+
+}
+
+class LibraryBook extends Book {
+    private int availablecopies;
+    private int totalCopies;
+
+    public int getAvailablecopies() {
+	    return this.availablecopies;
+    }
+    public void setAvailablecopies(int availablecopies) {
+	    this.availablecopies = availablecopies;
+    }
+
+
+    public int getTotalCopies() {
+    	return this.totalCopies;
+    }
+    public void setTotalCopies(int totalCopies) {
+    	this.totalCopies = totalCopies;
+    }
+
+    public LibraryBook(){
+        this.availablecopies = 0;
+        this.totalCopies = 0;
     }
 
 }
