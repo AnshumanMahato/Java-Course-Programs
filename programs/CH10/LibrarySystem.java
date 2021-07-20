@@ -203,6 +203,10 @@ class Library{
             System.out.printf("\n %3d | %30s | %30d | %30d",book.getBno(),book.getName(),book.getTotalCopies(),book.getAvailablecopies());
         }
     }
+
+    public void returnBook(){
+        
+    }
 }
 
 
