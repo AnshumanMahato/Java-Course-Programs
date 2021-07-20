@@ -110,16 +110,8 @@ class Library{
     private int totalBooks;
     private int booksIssued;
 
-    private int lastBookBno() {
-        return libraryBooks[totalBooks - 1].getBno();
-    }
-
     private boolean canAddBook(){
         return totalBooks < 10;
-    }
-
-    private boolean noBooks(){
-        return totalBooks == 0;
     }
 
     public Library(){
@@ -141,10 +133,7 @@ class Library{
         String bookName;
         int noc;
 
-        if(noBooks())
-            book.setBno(1000);
-        else
-            book.setBno(lastBookBno() + 1);
+        book.setBno(1000 + totalBooks);
         System.out.println("Enter Book Name:");
         bookName = sc.nextLine();
         book.setName(bookName);
@@ -160,7 +149,7 @@ class Library{
         book.setTotalCopies(noc);
         book.setAvailablecopies(noc);
 
-        libraryBooks[totalBooks] = book;
+        libraryBooks[totalBooks++] = book;
 
         System.out.println("Book has been added successfully!!!");
         sc.close();
@@ -170,29 +159,34 @@ class Library{
 
         Scanner sc = new Scanner(System.in);
         IssuedBook book = new IssuedBook();
-        int bno,uno;
+        int bno;
         String username;
 
         System.out.println("Enter Book No.:");
         bno = sc.nextInt();
-        if(bno < 1000 || bno > 1009){
+        bno %= 10;
+        
+        if(bno < 0 || bno > 9 ){
             System.out.println("Book Not Found!!! Please check booklist for available books and their respective book no.s");
             sc.close();
             return;
         }
 
-        bno %= 10;
+        if(!libraryBooks[bno].isBookAvailable()){
+            System.out.println("No copies are available for this book. Sorry!!!");
+            sc.close();
+            return;
+        }
+
         book.setBookDetails(libraryBooks[bno]);
         libraryBooks[bno].removeCopy();
 
-        System.out.println("Enter UserID:");
-        uno = sc.nextInt();
+        book.setUno(1000 + booksIssued);
         System.out.println("Enter Username:");
         username = sc.next();
-        book.setUno(uno);
         book.setUserName(username);
 
-        System.out.println("Following book has been issued to " + username + "(ID:" + uno + ")");
+        System.out.println("Following book has been issued to " + username + "(ID:" + book.getUno() + ")");
         book.getBook();
         System.out.println("Thank You for using our service. Please return the book on time...");
 
