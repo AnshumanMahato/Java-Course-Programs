@@ -194,6 +194,15 @@ class Library{
 
         sc.close();
     }
+
+    public void showBookList(){
+
+        System.out.println("BookList");
+        System.out.printf("\n %30s | %30s | %30s | %30s","Book No.","Name","Total Copies","Available Copies");
+        for (LibraryBook book : libraryBooks) {
+            System.out.printf("\n %3d | %30s | %30d | %30d",book.getBno(),book.getName(),book.getTotalCopies(),book.getAvailablecopies());
+        }
+    }
 }
 
 
