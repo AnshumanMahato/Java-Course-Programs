@@ -177,6 +177,7 @@ class Library{
         bno = sc.nextInt();
         if(bno < 1000 || bno > 1009){
             System.out.println("Book Not Found!!! Please check booklist for available books and their respective book no.s");
+            sc.close();
             return;
         }
 
