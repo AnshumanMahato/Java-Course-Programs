@@ -4,6 +4,40 @@ import java.util.Scanner;
 
 public class LibrarySystem {
     public static void main(String[] args) {
+        int n;
+        Scanner sc = new Scanner(System.in);
+        Library library = new Library();
+        do{
+            System.out.println("Library Menu");
+            System.out.println("1. Add Book");
+            System.out.println("2. Show Book List");
+            System.out.println("3. Issue Book");
+            System.out.println("4. Return Book");
+            System.out.println("5. Exit");
+            System.out.println("Enter Choice (1-5):");
+            n = sc.nextInt();
+            switch (n) {
+                case 1:
+                    library.addBook();
+                    break;
+                case 2:
+                    library.showBookList();
+                    break;
+                case 3:
+                    library.issueBook();
+                    break;
+                case 4:
+                    library.returnBook();
+                    break;
+                case 5:
+                    System.out.println("Thank you!!!");
+                    break;            
+                default:
+                    System.out.println("Invalid value. Enter between 1-5.");
+            }
+        }while(n != 5);
+
+        sc.close();
         
     }
 }
