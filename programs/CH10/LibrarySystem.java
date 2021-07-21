@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LibrarySystem {
     public static void main(String[] args) {
-        int n;
+        int n = 0;
         Scanner sc = new Scanner(System.in);
         Library library = new Library();
         do{
@@ -15,10 +15,12 @@ public class LibrarySystem {
             System.out.println("4. Return Book");
             System.out.println("5. Exit");
             System.out.println("Enter Choice (1-5):");
+
             n = sc.nextInt();
+            sc.nextLine();
             switch (n) {
                 case 1:
-                    library.addBook();
+                    library.addBook(sc);
                     break;
                 case 2:
                     library.showBookList();
@@ -156,13 +158,12 @@ class Library{
         
     }
 
-    public void addBook(){
+    public void addBook(Scanner sc){
         if(!canAddBook()){
             System.out.println("Library is full. Cannot add new books.");
             return;
         }
 
-        Scanner sc = new Scanner(System.in);
         LibraryBook book = new LibraryBook();
         String bookName;
         int noc;
@@ -186,29 +187,29 @@ class Library{
         libraryBooks[totalBooks++] = book;
 
         System.out.println("Book has been added successfully!!!");
-        sc.close();
+        // sc.close();
     }
 
     public void issueBook(){
 
-        Scanner sc = new Scanner(System.in);
+        Scanner issueInput = new Scanner(System.in);
         IssuedBook book = new IssuedBook();
         int bno;
         String username;
 
         System.out.println("Enter Book No.:");
-        bno = sc.nextInt();
+        bno = issueInput.nextInt();
         bno %= 10;
         
         if(bno < 0 || bno > 9 ){
             System.out.println("Book Not Found!!! Please check booklist for available books and their respective book no.s");
-            sc.close();
+            issueInput.close();
             return;
         }
 
         if(!libraryBooks[bno].isBookAvailable()){
             System.out.println("No copies are available for this book. Sorry!!!");
-            sc.close();
+            issueInput.close();
             return;
         }
 
@@ -217,7 +218,7 @@ class Library{
 
         book.setUno(1000 + booksIssued);
         System.out.println("Enter Username:");
-        username = sc.next();
+        username = issueInput.next();
         book.setUserName(username);
 
         System.out.println("Following book has been issued to " + username + "(ID:" + book.getUno() + ")");
@@ -225,16 +226,15 @@ class Library{
         System.out.println("Thank You for using our service. Please return the book on time...");
 
         issuedBooks[booksIssued++] = book;
-
-        sc.close();
+        issueInput.close();
     }
 
     public void showBookList(){
 
         System.out.println("BookList");
         System.out.printf("\n %30s | %30s | %30s | %30s","Book No.","Name","Total Copies","Available Copies");
-        for (LibraryBook book : libraryBooks) {
-            System.out.printf("\n %3d | %30s | %30d | %30d",book.getBno(),book.getName(),book.getTotalCopies(),book.getAvailablecopies());
+        for (int book = 0; book < totalBooks; book++) {
+            System.out.printf("\n %3d | %30s | %30d | %30d",libraryBooks[book].getBno(),libraryBooks[book].getName(),libraryBooks[book].getTotalCopies(),libraryBooks[book].getAvailablecopies());
         }
     }
 
