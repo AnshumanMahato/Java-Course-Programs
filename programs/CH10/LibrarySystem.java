@@ -26,7 +26,7 @@ public class LibrarySystem {
                     library.showBookList();
                     break;
                 case 3:
-                    library.issueBook();
+                    library.issueBook(sc);
                     break;
                 case 4:
                     library.returnBook();
@@ -190,26 +190,23 @@ class Library{
         // sc.close();
     }
 
-    public void issueBook(){
+    public void issueBook(Scanner sc){
 
-        Scanner issueInput = new Scanner(System.in);
         IssuedBook book = new IssuedBook();
         int bno;
         String username;
 
         System.out.println("Enter Book No.:");
-        bno = issueInput.nextInt();
+        bno = sc.nextInt();
         bno %= 10;
         
         if(bno < 0 || bno > 9 ){
             System.out.println("Book Not Found!!! Please check booklist for available books and their respective book no.s");
-            issueInput.close();
             return;
         }
 
         if(!libraryBooks[bno].isBookAvailable()){
             System.out.println("No copies are available for this book. Sorry!!!");
-            issueInput.close();
             return;
         }
 
@@ -218,7 +215,7 @@ class Library{
 
         book.setUno(1000 + booksIssued);
         System.out.println("Enter Username:");
-        username = issueInput.next();
+        username = sc.next();
         book.setUserName(username);
 
         System.out.println("Following book has been issued to " + username + "(ID:" + book.getUno() + ")");
@@ -226,7 +223,7 @@ class Library{
         System.out.println("Thank You for using our service. Please return the book on time...");
 
         issuedBooks[booksIssued++] = book;
-        issueInput.close();
+
     }
 
     public void showBookList(){
