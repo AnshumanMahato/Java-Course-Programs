@@ -17,7 +17,6 @@ class Welcome implements Runnable{
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         int i = 1;
